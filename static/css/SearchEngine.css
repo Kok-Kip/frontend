@@ -1,0 +1,30 @@
+#search-container {
+  margin: 0 auto 0 auto;
+}
+
+#search-text {
+  width: 50%;
+  height: 41px;
+  outline: medium;
+  letter-spacing: 1px;
+
+  border: solid 1px #39F;
+  border-radius: 25px;
+  font-size: 24px;
+  padding: 5px 17px;
+  margin: 10px 0 0 0px;
+
+  font-family: "Microsoft soft";
+}
+
+#search-submit {
+  height: 45px;
+  width: 10%;
+/*  background-color: #39F;*/
+  border-width: 1px;
+  border-style: solid;
+  font-size: 24px;
+  color: #FFF;
+  margin: -2px 0 0 -5px;
+  padding: 0px;
+}
