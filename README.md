@@ -6,7 +6,13 @@ This is the frontend project of Mini Search Engine
 
 ## How to run
 
+1. install dependencies
 
+   ```bash
+   npm install
+   ```
+
+2. 
 
 ## Reference
 
