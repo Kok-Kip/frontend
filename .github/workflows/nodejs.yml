@@ -23,6 +23,7 @@ jobs:
         # Get CommitMsg
         last_commit_log=$(git log -1 --pretty=format:"%s")
         echo "last commit log: $last_commit_log"
+
         feat="feat:[[:space:]].*$"
         fix="fix:[[:space:]].*$"
         test="test:[[:space:]].*$"
@@ -40,11 +41,11 @@ jobs:
             do
               echo "last commit log: $last_commit_log"
               echo "$regex"
-              if [[ lastcommitlog= regex ]]; then
-                printf "do match \n\n  lastcommitlogregex"
+              if [[ $last_commit_log =~ $regex ]]; then
+                printf "do match \n\n  $last_commit_log  $regex"
                 return 0
               else
-                printf "does not match lastcommitlogregex"
+                printf "does not match $last_commit_log  $regex"
               fi
             done
           return 1
