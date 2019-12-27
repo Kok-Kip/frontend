@@ -1,12 +1,11 @@
 <template>
   <div id="search-container">
-	<div id="search"></div>
-		<div id="search-icon"></div>
-		<div id="search-text"></div>
-		<input type="text" id="text" v-model="query">
-		<div id="search-cursor"></div>
-		<button id="search-submit" title="Submit"></button>
-  	</div>
+    <div id="search"></div>
+    <div id="search-icon"></div>
+    <div id="search-text"></div>
+    <input type="text" id="text" v-model="query">
+    <div id="search-cursor"></div>
+    <button id="search-submit" title="Submit"></button>
   </div>
 </template>
 
@@ -14,9 +13,9 @@
 export default {
   name: 'SearchEngine',
   data () {
-	return {
-	  // msg: 'Welcome to Your Vue.js App'
-	}
+    return {
+      // msg: 'Welcome to Your Vue.js App'
+    }
   },
   methods: {
 
@@ -27,7 +26,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #search-container {
-	margin: 0 auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 #search {
@@ -58,7 +57,6 @@ export default {
 }
 
 #search-cursor {
-	
 }
 
 #search-submit {
