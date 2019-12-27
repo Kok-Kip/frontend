@@ -12,7 +12,11 @@ This is the frontend project of Mini Search Engine
    npm install
    ```
 
-2. 
+2. run the project in dev environment
+
+   ```bash
+   npm run dev
+   ```
 
 ## Reference
 
