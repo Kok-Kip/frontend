@@ -6,8 +6,8 @@ describe('SearchEngine.vue', () => {
   it('should render correct contents', () => {
     const Constructor = Vue.extend(SearchEngine)
     const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('button').title)
-      .toEqual('Submit')
+    expect(vm.$el.querySelector('#search-text').placeholder)
+      .toEqual('Input your message, and search on Kok-Kip')
   })
 
 })

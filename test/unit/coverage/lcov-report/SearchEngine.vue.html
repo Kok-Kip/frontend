@@ -67,60 +67,7 @@
 22
 23
 24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+25</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,61 +91,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;div id="search-container"&gt;
-    &lt;div id="search"&gt;&lt;/div&gt;
-    &lt;div id="search-icon"&gt;&lt;/div&gt;
-    &lt;div id="search-text"&gt;&lt;/div&gt;
-    &lt;input type="text" id="text" v-model="query"&gt;
-    &lt;div id="search-cursor"&gt;&lt;/div&gt;
-    &lt;button id="search-submit" title="Submit"&gt;&lt;/button&gt;
+&lt;!--     &lt;div id="search-text"&gt;{{PlaceHolder}}&lt;/div&gt; --&gt;
+    &lt;input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Input your message, and search on Kok-Kip"&gt;
+&lt;!--     &lt;button id="search-submit" title="Submit"&gt;&lt;/button&gt; --&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
@@ -217,61 +114,14 @@ export default {
 &lt;/script&gt;
 &nbsp;
 &lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
-&lt;style scoped&gt;
-#search-container {
-  margin: 0 auto 0 auto;
-}
-&nbsp;
-#search {
-&nbsp;
-}
-&nbsp;
-#search-icon {
-&nbsp;
-}
-&nbsp;
-#search-text {
-&nbsp;
-}
-&nbsp;
-#text {
-  width: 43%;
-  height: 41px;
-&nbsp;
-  border: solid 1px #39F;
-  border-radius: 25px;
-  font-size: 24px;
-  padding: 0px;
-  margin: 10px 0 0 0px;
-}
-&nbsp;
-#search-text {
-&nbsp;
-}
-&nbsp;
-#search-cursor {
-}
-&nbsp;
-#search-submit {
-  height: 45px;
-  width: 10%;
-/*  background-color: #39F;*/
-  border-width: 1px;
-  border-style: solid;
-  font-size: 24px;
-  color: #FFF;
-  margin: -2px 0 0 -5px;
-  padding: 0px;
-}
-&nbsp;
-&lt;/style&gt;
+&lt;style lang="css" src="../../static/css/SearchEngine.css" scoped&gt;&lt;/style&gt;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Dec 28 2019 01:46:08 GMT+0800 (China Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 29 2019 01:07:14 GMT+0800 (China Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>
