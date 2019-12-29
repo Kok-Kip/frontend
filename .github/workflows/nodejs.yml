@@ -69,4 +69,3 @@ jobs:
         npm test --verbose
       env:
         CI: true
-        BROWSER: chrome
