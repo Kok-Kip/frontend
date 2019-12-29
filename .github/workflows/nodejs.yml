@@ -19,7 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         yarn install
-        nuget install Selenium.WebDriver.ChromeDriver
       env:
         BROWSER: chrome
     - name: should it be skipped?
