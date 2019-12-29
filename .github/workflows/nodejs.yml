@@ -19,6 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         yarn install
+        npm install selenium-server
         npm install --save-dev chromedriver
       env:
         BROWSER: chrome
