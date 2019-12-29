@@ -17,12 +17,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: |
-        yarn install
-        npm install selenium-server
-        npm install --save-dev chromedriver
-      env:
-        BROWSER: chrome
     - name: should it be skipped?
       run: |
         # Get CommitMsg
@@ -33,14 +27,14 @@ jobs:
         fix="fix:[[:space:]].*$"
         test="test:[[:space:]].*$"
         chore="chore:[[:space:]].*$"
-        
+
         commit_msg_reg=(
           $feat
           $fix
           $test
           $chore
         )
-        
+
         check_commit_msg() {
           for regex in ${commit_msg_reg[*]}
             do
@@ -55,7 +49,7 @@ jobs:
             done
           return 1
         }
-        
+
         check_commit_msg
         if [[ $? == 1 ]]
         then
