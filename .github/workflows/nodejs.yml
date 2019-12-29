@@ -19,7 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         yarn install
-        yarn jest e2e.runWithSelenium.test.ts
       env:
         BROWSER: chrome
     - name: should it be skipped?
@@ -68,3 +67,4 @@ jobs:
         npm test
       env:
         CI: true
+        BROWSER: chrome
