@@ -29,6 +29,11 @@ export default {
       // msg: 'Welcome to Your Vue.js App'
     }
   },
+  method: {
+    submit: function () {
+      console.log('Hello')
+    }
+  },
   computed: {
     // queryResponse: function() {
 
