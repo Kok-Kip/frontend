@@ -1,22 +1,22 @@
 <template>
-	<div id="search-container">
-		<div id="search-head">
-			<img src="../assets/logo3.png" id="search-head-img">
-			<div id="text-container">
-				<input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer...">
-      			<button id="search-submit" title="Submit" v-on:click="submit"></button>
-      		</div>
-		</div>
+    <div id="search-container">
+        <div id="search-head">
+            <img src="../assets/logo3.png" id="search-head-img">
+            <div id="text-container">
+                <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer...">
+                <button id="search-submit" title="Submit" v-on:click="submit"></button>
+            </div>
+        </div>
 
-		<div id="search-result">
-<!-- 			<div v-for="item in queryResponse">
-				<a id="res-title" v-bind:href="item.url" target="_blank" class="item-title">{{item.title}}</a>
-				<p class="res-desc">{{item.description}}</p>
-				<li id="date">{{item.date}}</li>
-			</div> -->
-		</div>
-		<div id="footer"></div>
-	</div>
+        <div id="search-result">
+        <!--    <div v-for="item in queryResponse">
+                <a id="res-title" v-bind:href="item.url" target="_blank" class="item-title">{{item.title}}</a>
+                <p class="res-desc">{{item.description}}</p>
+                <li id="date">{{item.date}}</li>
+            </div> -->
+        </div>
+        <div id="footer"></div>
+    </div>
 </template>
 
 <script>
@@ -30,9 +30,9 @@ export default {
     }
   },
   computed: {
-  	// queryResponse: function() {
+    // queryResponse: function() {
 
-  	// }
+    // }
   }
 }
 </script>
