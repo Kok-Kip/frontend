@@ -1,8 +1,13 @@
 <template>
-  <div id="search-container">
-<!--     <div id="search-text">{{PlaceHolder}}</div> -->
-    <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Input your message, and search on Kok-Kip">
-<!--     <button id="search-submit" title="Submit"></button> -->
+  <div>
+    <div id="app">
+      <img src="../assets/logo3.png">
+    </div>
+    <div id="search-container">
+      <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer...">
+      <button id="search-submit" title="Submit"></button>
+      <span id="search-comment">{{comment}}</span>
+    </div>
   </div>
 </template>
 
@@ -11,12 +16,14 @@ export default {
   name: 'SearchEngine',
   data () {
     return {
+      query: '',
+      comment: 'Search'
       // msg: 'Welcome to Your Vue.js App'
     }
-  },
-  methods: {
-
   }
+  // methods: {
+
+  // }
 }
 </script>
 
