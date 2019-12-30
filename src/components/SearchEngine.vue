@@ -22,9 +22,8 @@ export default {
     }
   },
   methods: {
-    submit: function() {
-      
-    }
+    // submit: function() {
+    // }
   }
 }
 </script>
