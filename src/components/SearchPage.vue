@@ -8,6 +8,10 @@
             </div>
         </div>
 
+        <div id="curve">
+          <hr align="center" size="1">
+        </div>
+
         <div id="search-result">
         <!--    <div v-for="item in queryResponse">
                 <a id="res-title" v-bind:href="item.url" target="_blank" class="item-title">{{item.title}}</a>

@@ -7,7 +7,13 @@
 #search-head {
 	position: absolute;
 	width: 100%;
-	border: 1px solid;
+/*	border: 1px solid;*/
+}
+
+#curve {
+/*	position: absolute;*/
+	position: relative;
+	top: 71px;
 }
 
 #search-head-img {
@@ -22,8 +28,9 @@
 	top: 6%;
 	left: 10%;
 
-	border: 1px solid;
-
+	border: 0.7px solid;
+	border-radius: 10px;
+	border-color: "#66CCFF";
 	width: 40%;
 	height: 85%;
 }
@@ -32,12 +39,12 @@
 	position: absolute;
 	
 	margin-left: 6px;
-	margin-top: 2px;
+	margin-top: 5px;
 	outline: medium;
 	width: 90%;
 	height: 77%;
 	font-family: "Microsoft soft";
-	font-size: 20px;
+	font-size: 22px;
 	border: 0;
 }
 
@@ -45,8 +52,8 @@
 	position: absolute;
 	background-image: url(../img/search.png);
 	outline: medium;
-	top: 2%;
-	right: 4px;
+	top: 8%;
+	right: 5px;
 
 	width: 45px;
 	height: 45px;
