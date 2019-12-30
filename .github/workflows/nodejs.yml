@@ -73,4 +73,4 @@ jobs:
       env:
         ACTIONS_DEPLOY_KEY: ${{secrets.deploy_key}}
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./docs/
+        PUBLISH_DIR: /home/runner/work/frontend/docs/
