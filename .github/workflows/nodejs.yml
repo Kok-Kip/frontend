@@ -17,7 +17,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: check workdir
+      run: |
+        pwd
     - name: should it be skipped?
       run: |
         # Get CommitMsg
@@ -28,12 +30,14 @@ jobs:
         fix="fix:[[:space:]].*$"
         test="test:[[:space:]].*$"
         chore="chore:[[:space:]].*$"
+        merge="Merge pull request.*$"
 
         commit_msg_reg=(
           $feat
           $fix
           $test
           $chore
+          $merge
         )
 
         check_commit_msg() {
