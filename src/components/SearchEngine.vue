@@ -22,8 +22,9 @@ export default {
     }
   },
   methods: {
-    // submit: function() {
-    // }
+    submit: function () {
+      console.log('Hello')
+    }
   }
 }
 </script>
