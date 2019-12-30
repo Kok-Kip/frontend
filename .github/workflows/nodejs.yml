@@ -64,3 +64,9 @@ jobs:
         npm test --verbose
       env:
         CI: true
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{secrets.deploy_key}}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: docs/
