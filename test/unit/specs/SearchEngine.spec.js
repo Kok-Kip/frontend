@@ -7,7 +7,7 @@ describe('SearchEngine.vue', () => {
     const Constructor = Vue.extend(SearchEngine)
     const vm = new Constructor().$mount()
     expect(vm.$el.querySelector('#search-text').placeholder)
-      .toEqual('Input your message, and search on Kok-Kip')
+      .toEqual('Kok Kip Your Answer...')
   })
 
 })
