@@ -17,7 +17,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: check workdir
+      run: |
+        pwd
     - name: should it be skipped?
       run: |
         # Get CommitMsg
@@ -28,12 +30,14 @@ jobs:
         fix="fix:[[:space:]].*$"
         test="test:[[:space:]].*$"
         chore="chore:[[:space:]].*$"
+        merge="Merge pull request.*$"
 
         commit_msg_reg=(
           $feat
           $fix
           $test
           $chore
+          $merge
         )
 
         check_commit_msg() {
@@ -64,3 +68,10 @@ jobs:
         npm test --verbose
       env:
         CI: true
+    - name: Deploy
+      uses: sterlingwes/gh-pages-deploy-action@v1.1
+      with:
+        access-token: ${{secrets.deploy_key}}
+        deploy-branch: gh-pages
+        source-directory: docs
+        build-command: npm run build
