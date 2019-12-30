@@ -8,13 +8,13 @@
       		</div>
 		</div>
 
-<!-- 		<div id="search-result">
-			<div v-for="item in queryResponse">
+		<div id="search-result">
+<!-- 			<div v-for="item in queryResponse">
 				<a id="res-title" v-bind:href="item.url" target="_blank" class="item-title">{{item.title}}</a>
 				<p class="res-desc">{{item.description}}</p>
 				<li id="date">{{item.date}}</li>
-			</div>
-		</div> -->
+			</div> -->
+		</div>
 		<div id="footer"></div>
 	</div>
 </template>
