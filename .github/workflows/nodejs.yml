@@ -68,10 +68,3 @@ jobs:
         npm test --verbose
       env:
         CI: true
-    - name: Deploy
-      uses: sterlingwes/gh-pages-deploy-action@v1.1
-      with:
-        access-token: ${{secrets.deploy_key}}
-        deploy-branch: gh-pages
-        source-directory: docs
-        build-command: npm run build
