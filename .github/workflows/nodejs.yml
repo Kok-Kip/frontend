@@ -69,8 +69,9 @@ jobs:
       env:
         CI: true
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
+      uses: JamesIves/github-pages-deploy-action@master
       env:
-        ACTIONS_DEPLOY_KEY: ${{secrets.deploy_key}}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: docs
+        ACCESS_TOKEN: ${{secrets.deploy_key}}
+        BRANCH: gh-pages
+        FOLDER: docs
+        BUILD_SCRIPT: npm install && npm run build
