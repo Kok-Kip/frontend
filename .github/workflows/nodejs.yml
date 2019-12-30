@@ -69,9 +69,9 @@ jobs:
       env:
         CI: true
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{secrets.deploy_key}}
-        BRANCH: gh-pages
-        FOLDER: docs
-        BUILD_SCRIPT: npm install && npm run build
+      uses: sterlingwes/gh-pages-deploy-action@v1.1
+      with:
+        access-token: ${{secrets.deploy_key}}
+        deploy-branch: gh-pages
+        source-directory: docs
+        build-command: npm install && npm run build
