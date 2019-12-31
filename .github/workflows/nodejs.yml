@@ -71,8 +71,9 @@ jobs:
         git config --global user.name "leungyukshing"
         git config --global user.email "jacky14.liang@gmail.com"
         git checkout -b gh-pages
+        git remote add origin git@github.com:Kok-Kip/frontend.git
         git add -f docs
         git commit -m "create project"
-        git subtree push --prefix docs "https://${{secrets.deploy_key}}@github.com/Kok-Kip/frontend.git" gh-pages:gh-pages
+        git subtree push --prefix docs origin gh-pages
       env:
         CI: true
