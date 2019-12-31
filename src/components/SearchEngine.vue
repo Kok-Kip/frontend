@@ -6,7 +6,6 @@
     <div id="search-container">
       <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer...">
       <button id="search-submit" title="Submit" v-on:click="submit"></button>
-      <span id="search-comment">{{comment}}</span>
     </div>
   </div>
 </template>
@@ -16,8 +15,7 @@ export default {
   name: 'SearchEngine',
   data () {
     return {
-      query: '',
-      comment: 'Search'
+      query: ''
       // msg: 'Welcome to Your Vue.js App'
     }
   },

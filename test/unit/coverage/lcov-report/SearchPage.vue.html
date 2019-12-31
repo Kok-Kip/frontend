@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for SearchEngine.vue</title>
+    <title>Code coverage report for SearchPage.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> SearchEngine.vue
+      <a href="index.html">All files</a> SearchPage.vue
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/2</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -76,7 +76,24 @@
 31
 32
 33
-34</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -93,7 +110,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,39 +130,69 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div&gt;
-    &lt;div id="app"&gt;
-      &lt;img src="../assets/logo3.png"&gt;
-    &lt;/div&gt;
     &lt;div id="search-container"&gt;
-      &lt;input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."&gt;
-      &lt;button id="search-submit" title="Submit" v-on:click="submit"&gt;&lt;/button&gt;
-      &lt;span id="search-comment"&gt;{{comment}}&lt;/span&gt;
+        &lt;div id="search-head"&gt;
+            &lt;img src="../assets/logo3.png" id="search-head-img"&gt;
+            &lt;div id="text-container"&gt;
+                &lt;input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."&gt;
+                &lt;button id="search-submit" title="Submit" v-on:click="submit"&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+&nbsp;
+        &lt;div id="curve"&gt;
+          &lt;hr align="center" size="1"&gt;
+        &lt;/div&gt;
+&nbsp;
+        &lt;div id="search-result"&gt;
+        &lt;!--    &lt;div v-for="item in queryResponse"&gt;
+                &lt;a id="res-title" v-bind:href="item.url" target="_blank" class="item-title"&gt;{{item.title}}&lt;/a&gt;
+                &lt;p class="res-desc"&gt;{{item.description}}&lt;/p&gt;
+                &lt;li id="date"&gt;{{item.date}}&lt;/li&gt;
+            &lt;/div&gt; --&gt;
+        &lt;/div&gt;
+        &lt;div id="footer"&gt;&lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
 export default {
-  name: 'SearchEngine',
-  data () {
-    return {
+  name: 'SearchPage',
+<span class="fstat-no" title="function not covered" >  data () {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
       query: '',
-      comment: 'Search'
+      response: []
       // msg: 'Welcome to Your Vue.js App'
     }
   },
-  methods: {
+  method: {
 <span class="fstat-no" title="function not covered" >    submit: function () {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('Hello')</span>
     }
+  },
+  computed: {
+    // queryResponse: function() {
+&nbsp;
+    // }
   }
 }
 &lt;/script&gt;
 &nbsp;
 &lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
-&lt;style lang="css" src="../../static/css/SearchEngine.css" scoped&gt;&lt;/style&gt;
+&lt;style lang="css" src="../../static/css/SearchPage.css" scoped&gt;&lt;/style&gt;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
