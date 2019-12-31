@@ -83,7 +83,7 @@ jobs:
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.deploy_key }}
         PUBLISH_BRANCH: gh-pages
-        PUBLIST_DIR: docs
+        PUBLISH_DIR: docs
     - name: Codecov
       uses: codecov/codecov-action@v1.0.5
       with:
