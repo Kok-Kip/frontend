@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1577802556313" clover="3.2.0">
-  <project timestamp="1577802556313" name="All files">
-    <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1" elements="8" coveredelements="2" complexity="0" loc="4" ncloc="4" packages="1" files="2" classes="2">
+<coverage generated="1577803859089" clover="3.2.0">
+  <project timestamp="1577803859089" name="All files">
+    <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2" elements="8" coveredelements="4" complexity="0" loc="4" ncloc="4" packages="1" files="2" classes="2">
       <file name="SearchEngine.vue" path="C:\Users\梁育诚\Desktop\Kok-Kip\frontend\src\components\SearchEngine.vue">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
       </file>
       <file name="SearchPage.vue" path="C:\Users\梁育诚\Desktop\Kok-Kip\frontend\src\components\SearchPage.vue">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="30" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="30" count="2" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
       </file>
     </metrics>

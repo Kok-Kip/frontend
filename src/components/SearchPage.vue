@@ -33,7 +33,7 @@ export default {
       // msg: 'Welcome to Your Vue.js App'
     }
   },
-  method: {
+  methods: {
     submit: function () {
       console.log('Hello')
     }
