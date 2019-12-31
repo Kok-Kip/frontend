@@ -66,5 +66,9 @@ jobs:
         npm ci
         npm run build --if-present
         npm test --verbose
+        git checkout -b gh-pages
+        git add -f dist
+        git commit -m "create project"
+        git subtree push --prefix dist origin gh-pages
       env:
         CI: true
