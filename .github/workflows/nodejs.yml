@@ -68,13 +68,18 @@ jobs:
         npm test --verbose
         pwd
         ls
-        git config --global user.name "leungyukshing"
-        git config --global user.email "jacky14.liang@gmail.com"
-        git checkout -b gh-pages
-        git add -f docs
-        git remote set-url origin git@github.com:Kok-Kip/frontend.git
-        git remote -v
-        git commit -m "create project"
-        git subtree push --prefix docs origin gh-pages
+        # git config --global user.name "leungyukshing"
+        # git config --global user.email "jacky14.liang@gmail.com"
+        # git checkout -b gh-pages
+        # git add -f docs
+        # git remote set-url origin git@github.com:Kok-Kip/frontend.git
+        # git remote -v
+        # git commit -m "create project"
+        # git subtree push --prefix docs origin gh-pages
       env:
         CI: true
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.5
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: ./test/unit/coverage/clover.xml
