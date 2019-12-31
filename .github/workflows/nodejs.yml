@@ -68,18 +68,11 @@ jobs:
         npm test --verbose
         pwd
         ls
-        # git config --global user.name "leungyukshing"
-        # git config --global user.email "jacky14.liang@gmail.com"
-        # git checkout -b gh-pages
-        # git add -f docs
-        # git commit -m "create project"
-        # git subtree push --prefix docs origin gh-pages
+        git config --global user.name "leungyukshing"
+        git config --global user.email "jacky14.liang@gmail.com"
+        git checkout -b gh-pages
+        git add -f docs
+        git commit -m "create project"
+        git subtree push --prefix docs "https://${{secrets.deploy_key}}@github.com/Kok-Kip/frontend.git" gh-pages
       env:
         CI: true
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.deploy_key }}
-        BRANCH: gh-pages
-        FOLDER: docs
-        BUILD_SCRIPT: npm install && npm run build
