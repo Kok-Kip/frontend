@@ -28,7 +28,12 @@ export default {
   },
   methods: {
     submit: function () {
-      console.log(this.querySuggest)
+      this.$router.push({
+        path: '/result',
+        query: {
+          q: this.query
+        }
+      })
     },
     updateQuery: function (data) {
       this.querySuggest = []

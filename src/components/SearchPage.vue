@@ -53,6 +53,11 @@ export default {
       this.query = data
     }
   },
+  created: function () {
+    // 得到 query 的值
+    const q = this.$route.query.q
+    console.log(q)
+  },
   watch: {
     query: function () {
       if (this.query === '') return
