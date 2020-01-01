@@ -18,7 +18,7 @@
   
 
   border: solid 1px #39F;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 4px 15px;
 
 }
@@ -36,6 +36,31 @@
 
   font-size: 18px;
   font-family: "Microsoft soft";
+}
+
+#dropdown-content {
+  display: none;
+  position: absolute;
+  left: -1px;
+  top: 49.542px;
+  background-color: #f9f9f9;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown-content div:hover {
+  background-color: #f1f1f1;
+}
+
+#search-container:hover #dropdown-content {
+  display: block;
 }
 
 #search-submit {
