@@ -11,17 +11,17 @@
                   </div>
                 </div>
             </div>
-            <div id="curve">
-              <hr align="center" size="1">
-            </div>
         </div>
 
         <div id="search-result">
-        <!--    <div v-for="item in queryResponse">
-                <a id="res-title" v-bind:href="item.url" target="_blank" class="item-title">{{item.title}}</a>
-                <p class="res-desc">{{item.description}}</p>
-                <li id="date">{{item.date}}</li>
-            </div> -->
+<!--           <div id="curve">
+            <hr align="center" size="1">
+          </div> -->
+<!--            <div v-for="item in queryResponse"> -->
+            <div class="search-item">
+                <a id="res-title" target="_blank" class="item-title">ddd</a>
+                <p class="item-desc">asfafasfasfasf</p>
+            </div>
         </div>
         <div id="footer"></div>
     </div>
@@ -56,7 +56,7 @@ export default {
   created: function () {
     // 得到 query 的值
     const q = this.$route.query.q
-    console.log(q)
+    this.query = q
   },
   watch: {
     query: function () {
