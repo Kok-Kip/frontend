@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [8.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -17,7 +17,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: check workdir
+      run: |
+        pwd
     - name: should it be skipped?
       run: |
         # Get CommitMsg
@@ -28,12 +30,14 @@ jobs:
         fix="fix:[[:space:]].*$"
         test="test:[[:space:]].*$"
         chore="chore:[[:space:]].*$"
+        merge="Merge pull request.*$"
 
         commit_msg_reg=(
           $feat
           $fix
           $test
           $chore
+          $merge
         )
 
         check_commit_msg() {
@@ -62,5 +66,26 @@ jobs:
         npm ci
         npm run build --if-present
         npm test --verbose
+        pwd
+        ls
+        # git config --global user.name "leungyukshing"
+        # git config --global user.email "jacky14.liang@gmail.com"
+        # git checkout -b gh-pages
+        # git add -f docs
+        # git remote set-url origin git@github.com:Kok-Kip/frontend.git
+        # git remote -v
+        # git commit -m "create project"
+        # git subtree push --prefix docs origin gh-pages
       env:
         CI: true
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.deploy_key }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: docs
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.5
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: ./test/unit/coverage/clover.xml
