@@ -41,7 +41,19 @@ export default {
   },
   methods: {
     submit: function () {
-      console.log('Hello')
+      this.handleQuery(this.query)
+    },
+    handleQuery: function (query) {
+      this.$axios({
+        method: 'get',
+        // 这里可以考虑把 http://127.0.0.1:5000 放进 config 里面
+        url: `http://127.0.0.1:5000/search?key=${query}`
+      }).then((response) => {
+        // 此处处理 response 返回的数据
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      })
     },
     updateQuery: function (data) {
       this.querySuggest = []
@@ -56,7 +68,7 @@ export default {
   created: function () {
     // 得到 query 的值
     const q = this.$route.query.q
-    this.query = q
+    this.handleQuery(q)
   },
   watch: {
     query: function () {
