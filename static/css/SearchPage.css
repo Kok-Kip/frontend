@@ -1,3 +1,7 @@
+a:link {
+	text-decoration: none;
+}
+
 #search-container {
 	position: relative;
 	width: 100%;
@@ -7,7 +11,7 @@
 #search-head {
 	position: absolute;
 	width: 100%;
-	border: 1px solid;
+	/* border: 1px solid; */
 }
 
 #search-head-img {
@@ -85,43 +89,57 @@
 	position: absolute;
 	top: 75px;
 	width: 100%;
-	height: 320px;
+	height: auto;
+	/* height: 320px; */
 	min-height: 320px;
-	border: 1px solid;
+	/* border: 1px solid; */
 }
 
 .search-item {
+	position: relative;
+	height: auto!important;
+	min-height: 90px;
 	width: 50%;
-	height: 200px;
+	height: 90px;
 	border: 1px solid;
 	margin-top: 10px;
 	margin-left: 4px;
 }
 
 .item-title {
-	position: absolute;
-	border: 1px solid;
-	margin-top: 10px;
-	margin-left: 5px;
+	position: relative;
+	/* border: 1px solid; */
+	top: 10px;
+	margin-left: 10px;
+	/* margin-top: 10px; */
 	width: 48%;
-	height: 10%;
+	height: 30px;
 	padding-top: 5px;
 	padding-left: 5px;
 	font-size: 24px;
 	font-family: "Microsoft soft";
 	text-align: left;
+	/* line-height: 20px; */
 }
 
 .item-desc {
-	position: absolute;
-	border: 1px solid;
-	margin-top: 55px;
-	margin-left: 5px;
-	width: 48%;
-	height: 80px;
+	position: relative;
+	/* border: 1px solid; */
+	/* margin-top: 40px; */
+	/* margin-top: 50px; */
+	margin-left: 10px;
+	width: 97%;
+	height: auto;
 	padding-top: 5px;
 	padding-left: 5px;
 	font-size: 19px;
 	font-family: "Microsoft soft";
 }
 
+/* #footer {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	top: 80px;
+	border: 1px solid;
+} */

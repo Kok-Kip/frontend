@@ -4,7 +4,7 @@
       <img src="../assets/logo3.png">
     </div>
     <div id="search-container">
-      <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit">
+      <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit">
       <button id="search-submit" title="Submit" v-on:click="submit"></button>
       <div id="dropdown-content">
         <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
