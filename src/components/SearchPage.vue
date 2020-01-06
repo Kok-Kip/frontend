@@ -82,7 +82,10 @@ export default {
   },
   watch: {
     query: function () {
-      if (this.query === '') return
+      if (this.query === '') {
+        this.querySuggest = []
+        return
+      }
 
       var sugurl = 'http://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
       var content = this.query
