@@ -59,9 +59,9 @@
   background-color: #f1f1f1;
 }
 
-#search-container:hover #dropdown-content {
+/* #search-container:hover #dropdown-content {
   display: block;
-}
+} */
 
 #search-submit {
   position: absolute;
