@@ -47,6 +47,7 @@ export default {
       this.handleQuery(this.query)
     },
     handleQuery: function (query) {
+      this.hiddenContent()
       this.$axios({
         method: 'get',
         // 这里可以考虑把 http://127.0.0.1:5000 放进 config 里面
