@@ -1,8 +1,9 @@
 <template>
-    <div id="search-container">
+    <div id="search-container" v-on:click="hiddenContent">
         <div id="search-head">
-            <img src="../assets/logo3.png" id="search-head-img">
-            <div id="text-container"  v-on:mouseleave="hiddenContent">
+            <img src="../assets/logo3.png" id="search-head-img" v-on:click="returnToMainPage">
+            <!-- v-on:mouseleave="hiddenContent" -->
+            <div id="text-container">
                 <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent">
                 <button id="search-submit" title="Submit" v-on:click="submit"></button>
                 <div id="dropdown-content">
@@ -47,6 +48,11 @@ export default {
       })
       this.handleQuery(this.query)
     },
+    returnToMainPage: function () {
+      this.$router.push({
+        path: '/'
+      })
+    },
     handleQuery: function (query) {
       this.hiddenContent()
       this.$axios({
@@ -88,7 +94,7 @@ export default {
     const q = this.$route.query.q
     this.query = q
     // this.handleQuery(q)
-    isFirst = false
+    this.isFirst = false
   },
   watch: {
     query: function () {
@@ -109,7 +115,7 @@ export default {
         } else {
           console.log(data.s)
           this.updateQuery(data.s)
-          if (!isFirst) {
+          if (!this.isFirst) {
             this.showContent()
           }
         }
