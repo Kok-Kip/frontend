@@ -1,0 +1,7 @@
+coverage:
+  status:
+    project:
+      default: off
+      unittest:
+        flags: unittest
+        target: 5%
