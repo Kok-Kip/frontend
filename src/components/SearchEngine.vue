@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <div id="app">
+  <div v-on:click="hiddenContent">
+    <div id="app" v-on:click="hiddenContent">
       <img src="../assets/logo3.png">
     </div>
-    <div id="search-container" v-on:mouseleave="hiddenContent">
+     <!-- v-on:mouseleave="hiddenContent" -->
+    <div id="search-container">
       <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit" v-on:click="showContent">
       <button id="search-submit" title="Submit" v-on:click="submit"></button>
       <div id="dropdown-content">
