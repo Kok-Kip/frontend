@@ -28,6 +28,10 @@ export default {
   },
   methods: {
     submit: function () {
+      if (this.query === '') {
+        return
+      }
+
       this.$router.push({
         path: '/result',
         query: {
@@ -55,7 +59,7 @@ export default {
         return
       }
 
-      var sugurl = 'http://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
+      var sugurl = 'https://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
       var content = this.query
       sugurl = sugurl.replace('#content#', content)
       var param = {

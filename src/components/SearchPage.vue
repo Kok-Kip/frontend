@@ -2,8 +2,8 @@
     <div id="search-container">
         <div id="search-head">
             <img src="../assets/logo3.png" id="search-head-img">
-            <div id="text-container">
-                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit">
+            <div id="text-container"  v-on:mouseleave="hiddenContent">
+                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent">
                 <button id="search-submit" title="Submit" v-on:click="submit"></button>
                 <div id="dropdown-content">
                   <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -21,10 +21,6 @@
               </div>
             </div>
         </div>
-
-        <!-- <div id="footer">
-          <img src="../assets/logo3.png" id="search-head-img">
-        </div> -->
     </div>
 </template>
 
@@ -73,11 +69,22 @@ export default {
     },
     chooseItem: function (data) {
       this.query = data
+      var dropdownContainer = document.getElementById('dropdown-content')
+      dropdownContainer.style.display = 'none'
+    },
+    showContent: function () {
+      var dropdownContainer = document.getElementById('dropdown-content')
+      dropdownContainer.style.display = 'block'
+    },
+    hiddenContent: function () {
+      var dropdownContainer = document.getElementById('dropdown-content')
+      dropdownContainer.style.display = 'none'
     }
   },
   created: function () {
     // 得到 query 的值
     const q = this.$route.query.q
+    this.query = q
     this.handleQuery(q)
   },
   watch: {
@@ -87,7 +94,7 @@ export default {
         return
       }
 
-      var sugurl = 'http://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
+      var sugurl = 'https://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
       var content = this.query
       sugurl = sugurl.replace('#content#', content)
       var param = {
