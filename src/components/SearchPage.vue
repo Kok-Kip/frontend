@@ -64,6 +64,7 @@ export default {
         this.resData = []
         const data = response['data']['data']
         this.resData = data
+        this.updateQuery(this.resData)
         console.log(response)
       }).catch((error) => {
         console.log(error)
