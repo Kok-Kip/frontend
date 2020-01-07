@@ -2,8 +2,8 @@
     <div id="search-container">
         <div id="search-head">
             <img src="../assets/logo3.png" id="search-head-img">
-            <div id="text-container">
-                <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit">
+            <div id="text-container"  v-on:mouseleave="hiddenContent">
+                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent">
                 <button id="search-submit" title="Submit" v-on:click="submit"></button>
                 <div id="dropdown-content">
                   <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -14,16 +14,13 @@
         </div>
 
         <div id="search-result">
-<!--           <div id="curve">
-            <hr align="center" size="1">
-          </div> -->
-<!--            <div v-for="item in queryResponse"> -->
-            <div class="search-item">
-                <a id="res-title" target="_blank" class="item-title">ddd</a>
-                <p class="item-desc">asfafasfasfasf</p>
+            <div v-for="(item, index) in resData" :key="index">
+              <div class="search-item">
+                  <a id="res-title" target="_blank" class="item-title" v-bind:href="item.url">{{item.title}}</a>
+                  <p class="item-desc">{{item.description}}</p>
+              </div>
             </div>
         </div>
-        <div id="footer"></div>
     </div>
 </template>
 
@@ -35,12 +32,18 @@ export default {
     return {
       query: '',
       querySuggest: [],
-      response: []
+      resData: []
       // msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
     submit: function () {
+      this.$router.push({
+        path: '/result',
+        query: {
+          q: this.query
+        }
+      })
       this.handleQuery(this.query)
     },
     handleQuery: function (query) {
@@ -50,6 +53,9 @@ export default {
         url: `http://127.0.0.1:5000/search?key=${query}`
       }).then((response) => {
         // 此处处理 response 返回的数据
+        this.resData = []
+        const data = response['data']['data']
+        this.resData = data
         console.log(response)
       }).catch((error) => {
         console.log(error)
@@ -63,18 +69,32 @@ export default {
     },
     chooseItem: function (data) {
       this.query = data
+      var dropdownContainer = document.getElementById('dropdown-content')
+      dropdownContainer.style.display = 'none'
+    },
+    showContent: function () {
+      var dropdownContainer = document.getElementById('dropdown-content')
+      dropdownContainer.style.display = 'block'
+    },
+    hiddenContent: function () {
+      var dropdownContainer = document.getElementById('dropdown-content')
+      dropdownContainer.style.display = 'none'
     }
   },
   created: function () {
     // 得到 query 的值
     const q = this.$route.query.q
+    this.query = q
     this.handleQuery(q)
   },
   watch: {
     query: function () {
-      if (this.query === '') return
+      if (this.query === '') {
+        this.querySuggest = []
+        return
+      }
 
-      var sugurl = 'http://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
+      var sugurl = 'https://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
       var content = this.query
       sugurl = sugurl.replace('#content#', content)
       var param = {

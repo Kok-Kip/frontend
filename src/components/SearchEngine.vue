@@ -4,7 +4,7 @@
       <img src="../assets/logo3.png">
     </div>
     <div id="search-container">
-      <input type="text" id="search-text" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit">
+      <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit">
       <button id="search-submit" title="Submit" v-on:click="submit"></button>
       <div id="dropdown-content">
         <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -28,6 +28,10 @@ export default {
   },
   methods: {
     submit: function () {
+      if (this.query === '') {
+        return
+      }
+
       this.$router.push({
         path: '/result',
         query: {
@@ -50,9 +54,12 @@ export default {
   },
   watch: {
     query: function () {
-      if (this.query === '') return
+      if (this.query === '') {
+        this.querySuggest = []
+        return
+      }
 
-      var sugurl = 'http://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
+      var sugurl = 'https://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug'
       var content = this.query
       sugurl = sugurl.replace('#content#', content)
       var param = {
