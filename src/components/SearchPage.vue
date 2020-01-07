@@ -106,6 +106,7 @@ export default {
         } else {
           console.log(data.s)
           this.updateQuery(data.s)
+          this.showContent()
         }
       })
     }
