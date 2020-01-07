@@ -32,7 +32,8 @@ export default {
     return {
       query: '',
       querySuggest: [],
-      resData: []
+      resData: [],
+      isFirst: true
       // msg: 'Welcome to Your Vue.js App'
     }
   },
@@ -86,7 +87,8 @@ export default {
     // 得到 query 的值
     const q = this.$route.query.q
     this.query = q
-    this.handleQuery(q)
+    // this.handleQuery(q)
+    isFirst = false
   },
   watch: {
     query: function () {
@@ -107,7 +109,9 @@ export default {
         } else {
           console.log(data.s)
           this.updateQuery(data.s)
-          this.showContent()
+          if (!isFirst) {
+            this.showContent()
+          }
         }
       })
     }
