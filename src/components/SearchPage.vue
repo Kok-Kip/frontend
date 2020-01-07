@@ -18,7 +18,7 @@
             <div v-for="(item, index) in resData" :key="index">
               <div class="search-item">
                   <a id="res-title" target="_blank" class="item-title" v-bind:href="item.url">{{item.title}}</a>
-                  <p class="item-desc">{{item.description}}</p>
+                  <p class="item-desc">{{item.text}}</p>
               </div>
             </div>
         </div>
