@@ -31,6 +31,7 @@ jobs:
         test="test:[[:space:]].*$"
         chore="chore:[[:space:]].*$"
         merge="Merge pull request.*$"
+        doc="doc:[[:space:]].*$"
 
         commit_msg_reg=(
           $feat
@@ -38,6 +39,7 @@ jobs:
           $test
           $chore
           $merge
+          $doc
         )
 
         check_commit_msg() {
