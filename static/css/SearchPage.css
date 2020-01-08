@@ -107,6 +107,16 @@ a:link {
 	margin-left: 4px;
 }
 
+#tipText {
+	position: relative;
+	top: 10px;
+	margin-left: 10px;
+	font-size: 24px;
+	font-family: "Microsoft soft";
+	color: rgb(255, 120, 102);
+	text-align: left;	
+}
+
 .item-title {
 	position: relative;
 	/* border: 1px solid; */
@@ -119,6 +129,7 @@ a:link {
 	padding-left: 5px;
 	font-size: 24px;
 	font-family: "Microsoft soft";
+	/* color: #66CCFF; */
 	text-align: left;
 	/* line-height: 20px; */
 }
@@ -134,6 +145,18 @@ a:link {
 	padding-top: 5px;
 	padding-left: 5px;
 	font-size: 19px;
+	font-family: "Microsoft soft";
+}
+
+.date-desc {
+	position: relative;
+	margin-left: 10px;
+	/* border: 1px solid; */
+	width: 97%;
+	height: auto;
+	padding-left: 5px;
+	color: rgb(144, 30, 210);
+	font-size: 11px;
 	font-family: "Microsoft soft";
 }
 
