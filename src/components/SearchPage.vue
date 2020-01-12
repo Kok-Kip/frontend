@@ -2,7 +2,6 @@
     <div id="search-container" v-on:click="hiddenContent">
         <div id="search-head">
             <img src="../assets/logo3.png" id="search-head-img" v-on:click="returnToMainPage">
-            <!-- v-on:mouseleave="hiddenContent" -->
             <div id="text-container">
                 <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent">
                 <button id="search-submit" title="Submit" v-on:click="submit"></button>
@@ -17,7 +16,7 @@
         <div id="search-result">
             <div v-for="(item, index) in resData" :key="index">
               <div class="search-item">
-                  <span id="tipText">[{{query}}]</span><a id="res-title" target="_blank" class="item-title" v-bind:href="item.url">{{item.title}}</a>
+                  <span id="tipText">[{{keyWord}}]</span><span id="res-title" class="item-title">{{item.title}}</span>
                   <p class="item-desc">{{item.text}}</p>
                   <p class="date-desc">{{item.date}}</p>
               </div>
@@ -33,10 +32,10 @@ export default {
   data () {
     return {
       query: '',
+      keyWord: '', // keyWord shownd on results
       querySuggest: [],
       resData: [],
       isFirst: true
-      // msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
@@ -65,6 +64,7 @@ export default {
         this.resData = []
         const data = response['data']['data']
         this.resData = data
+        this.keyWord = query
         this.updateQuery(this.resData)
         console.log(response)
       }).catch((error) => {
@@ -94,13 +94,15 @@ export default {
   created: function () {
     // 得到 query 的值
     const q = this.$route.query.q
+    this.isFirst = true
     this.query = q
-    // this.handleQuery(q)
-    this.isFirst = false
+    this.handleQuery(q)
   },
   watch: {
     query: function () {
-      if (this.query === '') {
+      console.log('In watch query')
+      if (this.query === '' || !this.isFirst) {
+        this.isFirst = false
         this.querySuggest = []
         return
       }
@@ -117,9 +119,7 @@ export default {
         } else {
           console.log(data.s)
           this.updateQuery(data.s)
-          if (!this.isFirst) {
-            this.showContent()
-          }
+          this.showContent()
         }
       })
     }
