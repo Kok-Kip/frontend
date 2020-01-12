@@ -16,8 +16,8 @@
         <div id="search-result">
             <div v-for="(item, index) in resData" :key="index">
               <div class="search-item">
-                  <span id="tipText">[{{keyWord}}]</span><span id="res-title" class="item-title">{{item.title}}</span>
-                  <p class="item-desc">{{item.text}}</p>
+                  <span id="tipText">[{{keyWord}}]</span><span id="res-title" class="item-title" v-html="brighten(item.title)"></span>
+                  <p class="item-desc" v-html="brighten(item.text)"></p>
                   <p class="date-desc">{{item.date}}</p>
               </div>
             </div>
@@ -32,13 +32,22 @@ export default {
   data () {
     return {
       query: '',
-      keyWord: '', // keyWord shownd on results
+      keyWord: '', // keyWord shown on results
       querySuggest: [],
       resData: [],
-      isFirst: true
+      isFirst: true,
+      shouldShow: true
     }
   },
   methods: {
+    brighten: function (content) {
+      if (this.keyWord) {
+        const reg = new RegExp(this.keyWord, 'g')
+        let result = content.replace(reg, '<span style="color: #ff7866;">' + this.keyWord + '</span>')
+        // let result = content.replace(reg, '<span id="red-text">' + this.keyWord + '</span>')
+        return result
+      }
+    },
     submit: function () {
       this.$router.push({
         path: '/result',
@@ -65,7 +74,6 @@ export default {
         const data = response['data']['data']
         this.resData = data
         this.keyWord = query
-        this.updateQuery(this.resData)
         console.log(response)
       }).catch((error) => {
         console.log(error)
@@ -81,6 +89,8 @@ export default {
       this.query = data
       var dropdownContainer = document.getElementById('dropdown-content')
       dropdownContainer.style.display = 'none'
+      this.shouldShow = false
+      this.submit()
     },
     showContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
@@ -101,8 +111,10 @@ export default {
   watch: {
     query: function () {
       console.log('In watch query')
-      if (this.query === '' || !this.isFirst) {
+      console.log(this.isFirst)
+      if (this.query === '' || this.isFirst || !this.shouldShow) {
         this.isFirst = false
+        this.shouldShow = true
         this.querySuggest = []
         return
       }
