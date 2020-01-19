@@ -26,12 +26,17 @@ a:link {
 	position: absolute;
 	top: 6%;
 	left: 10%;
-
-	border: 0.7px solid;
 	border-radius: 10px;
-	border-color: #66CCFF;
 	width: 40%;
 	height: 85%;
+}
+
+.text-container-border-grey {
+  border: 0.7px solid #CECCCC;
+}
+
+.text-container-border-blue {
+  border: 0.7px solid #66CCFF;
 }
 
 #search-text {
