@@ -3,8 +3,8 @@
     <div id="app" v-on:click="hiddenContent">
       <img src="../assets/logo3.png">
     </div>
-    <div id="search-container">
-      <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit" v-on:click="showContent">
+    <div id="search-container" :class="[inputBoxFocus?'search-box-border-blue':'search-box-border-grey']">
+      <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()">
       <button id="search-submit" title="Submit" v-on:click="submit"></button>
       <div id="dropdown-content">
         <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -22,7 +22,8 @@ export default {
   data () {
     return {
       query: '',
-      querySuggest: []
+      querySuggest: [],
+      inputBoxFocus: false
     }
   },
   methods: {
@@ -55,6 +56,12 @@ export default {
     hiddenContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
       dropdownContainer.style.display = 'none'
+    },
+    onFocus: function () {
+      this.inputBoxFocus = true
+    },
+    onBlur: function () {
+      this.inputBoxFocus = false
     }
   },
   mounted () {

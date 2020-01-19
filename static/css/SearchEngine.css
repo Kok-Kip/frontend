@@ -15,12 +15,16 @@
   width: 50%;
   height: 41px;
   outline: medium;
-  
-
-  border: solid 1px #39F;
   border-radius: 10px;
   padding: 4px 15px;
+}
 
+.search-box-border-grey {
+  border: solid 1px #CECCCC;
+}
+
+.search-box-border-blue {
+  border: solid 1px #39F;
 }
 
 #search-text {

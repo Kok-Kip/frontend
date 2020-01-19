@@ -2,8 +2,8 @@
     <div id="search-container" v-on:click="hiddenContent">
         <div id="search-head">
             <img src="../assets/logo3.png" id="search-head-img" v-on:click="returnToMainPage">
-            <div id="text-container">
-                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent">
+            <div id="text-container" :class="[inputBoxFocus?'text-container-border-blue':'text-container-border-grey']">
+                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()">
                 <button id="search-submit" title="Submit" v-on:click="submit"></button>
                 <div id="dropdown-content">
                   <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -36,7 +36,8 @@ export default {
       querySuggest: [],
       resData: [],
       isFirst: true,
-      shouldShow: true
+      shouldShow: true,
+      inputBoxFocus: false
     }
   },
   methods: {
@@ -99,6 +100,14 @@ export default {
     hiddenContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
       dropdownContainer.style.display = 'none'
+    },
+    onFocus: function () {
+      console.log('onFocus')
+      this.inputBoxFocus = true
+    },
+    onBlur: function () {
+      console.log('onBlur')
+      this.inputBoxFocus = false
     }
   },
   created: function () {
