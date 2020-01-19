@@ -4,7 +4,7 @@
       <img src="../assets/logo3.png">
     </div>
     <div id="search-container" :class="[inputBoxFocus?'search-box-border-blue':'search-box-border-grey']">
-      <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()">
+      <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..." v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()" @keyup.up="upClick()" @keyup.down="downClick()">
       <button id="search-submit" title="Submit" v-on:click="submit"></button>
       <div id="dropdown-content">
         <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -23,7 +23,8 @@ export default {
     return {
       query: '',
       querySuggest: [],
-      inputBoxFocus: false
+      inputBoxFocus: false,
+      idx: 0
     }
   },
   methods: {
@@ -44,6 +45,7 @@ export default {
       for (var i = 0; i <= data.length - 1; i++) {
         this.querySuggest.push(data[i])
       }
+      this.idx = -1
     },
     chooseItem: function (data) {
       this.query = data
@@ -62,6 +64,20 @@ export default {
     },
     onBlur: function () {
       this.inputBoxFocus = false
+    },
+    upClick: function () {
+      console.log('upClick')
+      if (this.idx <= 0) {
+        return
+      }
+      this.query = this.querySuggest[this.idx - 1]
+    },
+    downClick: function () {
+      console.log('downClick')
+      if (this.idx > 9) {
+        return
+      }
+      this.query = this.querySuggest[this.idx + 1]
     }
   },
   mounted () {

@@ -3,7 +3,7 @@
         <div id="search-head">
             <img src="../assets/logo3.png" id="search-head-img" v-on:click="returnToMainPage">
             <div id="text-container" :class="[inputBoxFocus?'text-container-border-blue':'text-container-border-grey']">
-                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()">
+                <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()" @keyup.up="upClick()" @keyup.down="downClick()">
                 <button id="search-submit" title="Submit" v-on:click="submit"></button>
                 <div id="dropdown-content">
                   <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
@@ -85,6 +85,7 @@ export default {
       for (var i = data.length - 1; i >= 0; i--) {
         this.querySuggest.push(data[i])
       }
+      this.idx = -1
     },
     chooseItem: function (data) {
       this.query = data
@@ -108,10 +109,24 @@ export default {
     onBlur: function () {
       console.log('onBlur')
       this.inputBoxFocus = false
+    },
+    upClick: function () {
+      console.log('upClick')
+      if (this.idx <= 0) {
+        return
+      }
+      this.query = this.querySuggest[this.idx - 1]
+    },
+    downClick: function () {
+      console.log('downClick')
+      if (this.idx > 9) {
+        return
+      }
+      this.query = this.querySuggest[this.idx + 1]
     }
   },
   created: function () {
-    // 得到 query 的值
+    // Get query from URL
     const q = this.$route.query.q
     this.isFirst = true
     this.query = q
