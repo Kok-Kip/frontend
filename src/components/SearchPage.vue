@@ -68,7 +68,7 @@ export default {
       this.$axios({
         method: 'get',
         // 这里可以考虑把 http://127.0.0.1:5000 放进 config 里面
-        url: `http://127.0.0.1:5000/search?key=${query}`
+        url: `http://111.230.212.14:5000/search?key=${query}`
       }).then((response) => {
         // 此处处理 response 返回的数据
         this.resData = []
