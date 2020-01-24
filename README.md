@@ -23,4 +23,6 @@ This is the frontend project of Mini Search Engine. We have deployed our website
 
 When you use a browser like Chrome to access our website, please allow to load unsafe script on the top-right corner to allow the request from website to our server.
 
+![load script](https://raw.githubusercontent.com/Kok-Kip/frontend/master/load_script.png)
+
 Pay attention that we only have one machine so we can not promise a strongly reliable service. If you come across any problem when using our service, please contact our developers.
