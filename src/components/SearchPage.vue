@@ -1,5 +1,8 @@
 <template>
     <div id="search-container" v-on:click="hiddenContent">
+        <transition name="fade">
+            <loading v-if="isLoading"></loading>
+        </transition>
         <div id="search-head">
             <img src="../assets/logo3.png" id="search-head-img" v-on:click="returnToMainPage">
             <div id="text-container" :class="[inputBoxFocus?'text-container-border-blue':'text-container-border-grey']">
@@ -27,6 +30,8 @@
 
 <script>
 import jsonp from 'jsonp'
+import Loading from '@/components/LoadBar'
+
 export default {
   name: 'SearchPage',
   data () {
@@ -37,9 +42,11 @@ export default {
       resData: [],
       isFirst: true,
       shouldShow: true,
-      inputBoxFocus: false
+      inputBoxFocus: false,
+      isLoading: false
     }
   },
+  components: {Loading},
   methods: {
     brighten: function (content) {
       if (this.keyWord) {
@@ -65,9 +72,13 @@ export default {
     },
     handleQuery: function (query) {
       this.hiddenContent()
+      this.isLoading = true // show loading bar
+      this.resData = []
       this.$axios({
         method: 'get',
         // 这里可以考虑把 http://127.0.0.1:5000 放进 config 里面
+        // server_api = 'http://111.230.212.14:5000/search?key='
+        // url: `http://127.0.0.1:5000/search?key=${query}`
         url: `http://111.230.212.14:5000/search?key=${query}`
       }).then((response) => {
         // 此处处理 response 返回的数据
@@ -76,6 +87,8 @@ export default {
         this.resData = data
         this.keyWord = query
         console.log(response)
+
+        this.isLoading = false // hide loading bar
       }).catch((error) => {
         console.log(error)
       })

@@ -20,4 +20,4 @@ This document is supposed to illustrate the design overview of Kok Kip Front end
 6. [vue listen keyboard event](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
 7. [Vue component bind class](https://www.jb51.net/article/146114.htm)
 8. [record.js Usage](https://segmentfault.com/q/1010000017963516)
-
+9. [loading animation](https://www.jianshu.com/p/104bbb01b222)
