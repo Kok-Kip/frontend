@@ -21,4 +21,6 @@ This is the frontend project of Mini Search Engine. We have deployed our website
 
 **News:** Good News! We have successfully deployed out search service on a remote machine on 24, Jan. Now you can access the website above to use our search engine. Thank you!
 
+When you use a browser like Chrome to access our website, please allow to load unsafe script on the top-right corner to allow the request from website to our server.
+
 Pay attention that we only have one machine so we can not promise a strongly reliable service. If you come across any problem when using our service, please contact our developers.
