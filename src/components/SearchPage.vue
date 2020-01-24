@@ -91,6 +91,8 @@ export default {
         this.isLoading = false // hide loading bar
       }).catch((error) => {
         console.log(error)
+        this.isLoading = false // hide loading bar
+        alert('Sorrr! Our service is unavailable now')
       })
     },
     updateQuery: function (data) {

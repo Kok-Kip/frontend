@@ -8,6 +8,9 @@ This document is supposed to illustrate the design overview of Kok Kip Front end
 
 ## MainPage
 
++ Text Search: Done
++ Voice Input: Design
+
 ## SearchPage
 
 ## Reference
@@ -21,3 +24,5 @@ This document is supposed to illustrate the design overview of Kok Kip Front end
 7. [Vue component bind class](https://www.jb51.net/article/146114.htm)
 8. [record.js Usage](https://segmentfault.com/q/1010000017963516)
 9. [loading animation](https://www.jianshu.com/p/104bbb01b222)
+10. [DIY your loading icon](https://loading.io/spinner/bars/-bounce-bar-column-chart-equalizer-histogram-rectangle-block-progress-facebook)
+

@@ -19,9 +19,6 @@ This is the frontend project of Mini Search Engine. We have deployed our website
    npm run dev
    ```
 
-**Note:** We are sorry to tell you that we have not yet deployed our server. If you want to experience the whole search function, we sincerely ask you to download our backend project and run locally. We promise we may deploy our service as soon as we have enough resource. Thank you!
+**News:** Good News! We have successfully deployed out search service on a remote machine on 24, Jan. Now you can access the website above to use our search engine. Thank you!
 
-## Reference
-
-1. 
-
+Pay attention that we only have one machine so we can not promise a strongly reliable service. If you come across any problem when using our service, please contact our developers.
