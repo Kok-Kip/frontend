@@ -74,7 +74,7 @@ export default {
       var client = new RPCClient({
         accessKeyId: 'LTAI4FvbUkbyYDQ6PZY13Hin',
         accessKeySecret: 'AGSS25KHDLyyDe5QIoiZqLgUqGRENi',
-        endpoint: 'http://nls-meta.cn-shanghai.aliyuncs.com',
+        endpoint: 'https://nls-meta.cn-shanghai.aliyuncs.com',
         apiVersion: '2019-02-28'
       })
 
