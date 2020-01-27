@@ -14,6 +14,6 @@ describe('SearchEngine.vue', () => {
     const Constructor = Vue.extend(SearchEngine)
     const vm = new Constructor().$mount()
     expect(vm.$el.querySelector('#search-submit').title)
-      .toEqual('Submit')
+      .toEqual('search by voice')
   })
 })
