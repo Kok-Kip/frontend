@@ -7,7 +7,7 @@
             <img src="../assets/logo3.png" id="search-head-img" v-on:click="returnToMainPage">
             <div id="text-container" :class="[inputBoxFocus?'text-container-border-blue':'text-container-border-grey']">
                 <input type="text" id="search-text" autocomplete="off" v-model="query" tabindex="=-1" placeholder="Kok Kip Your Answer..."  v-on:keyup.13="submit" v-on:click="showContent" @focus="onFocus()" @blur="onBlur()" @keyup.up="upClick()" @keyup.down="downClick()">
-                <button id="search-submit" title="Submit" v-on:click="submit"></button>
+                <button id="search-submit" title="search by voice" v-on:click="voiceInput"></button>
                 <div id="dropdown-content">
                   <div v-for="item in querySuggest" :key="item" v-on:click="chooseItem(item)">
                     {{ item }}
@@ -138,6 +138,12 @@ export default {
         return
       }
       this.query = this.querySuggest[this.idx + 1]
+    },
+    voiceInput: function () {
+      console.log('inputByVoice')
+      this.$router.push({
+        path: '/voice'
+      })
     }
   },
   created: function () {

@@ -13,6 +13,17 @@ This document is supposed to illustrate the design overview of Kok Kip Front end
 
 ## SearchPage
 
+---
+
+## VoiceInput
+
+add a new page to record voice. and then use Aliyun API to transform a voice file into text.
+
++ Record voice
++ get token
++ voice to text
++ show text
+
 ## Reference
 
 1. [Search intellisense API](https://www.cnblogs.com/woider/p/5805248.html)
@@ -25,4 +36,5 @@ This document is supposed to illustrate the design overview of Kok Kip Front end
 8. [record.js Usage](https://segmentfault.com/q/1010000017963516)
 9. [loading animation](https://www.jianshu.com/p/104bbb01b222)
 10. [DIY your loading icon](https://loading.io/spinner/bars/-bounce-bar-column-chart-equalizer-histogram-rectangle-block-progress-facebook)
-
+11. [Aliyun Voice Service Demo](https://help.aliyun.com/document_detail/92131.html?spm=a2c4g.11174283.3.8.7c7472751PLjG5#h2-node-js-demo12)
+12. [Aliyun Voice Service API](https://help.aliyun.com/document_detail/84428.html?spm=a2c4g.11186623.6.575.138c7fb04kCQql)

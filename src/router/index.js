@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import SearchEngine from '@/components/SearchEngine'
 import SearchPage from '@/components/SearchPage'
-
+import VoiceInput from '@/components/VoiceInput'
 Vue.use(Router)
 
 export default new Router({
@@ -16,6 +16,11 @@ export default new Router({
       path: '/result',
       name: 'SearchPage',
       component: SearchPage
+    },
+    {
+      path: '/voice',
+      name: 'VoiceInput',
+      component: VoiceInput
     }
   ]
 })

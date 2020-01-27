@@ -14,9 +14,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@alicloud/pop-core": "^1.7.9",
     "@vue/cli-plugin-e2e-nightwatch": "^4.0.0-rc.3",
     "axios": "^0.19.0",
     "jsonp": "^0.2.1",
+    "recorderx": "^2.0.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
