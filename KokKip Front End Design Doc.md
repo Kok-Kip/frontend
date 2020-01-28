@@ -24,6 +24,13 @@ add a new page to record voice. and then use Aliyun API to transform a voice fil
 + voice to text
 + show text
 
+Due to CORS problem, I try to use the folowing stategy to deal with this problem:
+
+1.  frontend -> server: with voice file(bytes)
+2. server -> aliyun API: get token
+3. server -> aliyun API: use token to do voice2Text
+4. server -> frontend: return text to frontend.
+
 ## Reference
 
 1. [Search intellisense API](https://www.cnblogs.com/woider/p/5805248.html)

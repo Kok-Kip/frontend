@@ -13,7 +13,7 @@ describe('SearchEngine.vue', () => {
   it('button should have correct title', ()=> {
     const Constructor = Vue.extend(SearchEngine)
     const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('#search-submit').title)
+    expect(vm.$el.querySelector('#voice-btn').title)
       .toEqual('search by voice')
   })
 })
