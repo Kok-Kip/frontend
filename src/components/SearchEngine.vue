@@ -53,10 +53,16 @@ export default {
     },
     showContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
+      if (dropdownContainer === null) {
+        return
+      }
       dropdownContainer.style.display = 'block'
     },
     hiddenContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
+      if (dropdownContainer === null) {
+        return
+      }
       dropdownContainer.style.display = 'none'
     },
     onFocus: function () {

@@ -2,14 +2,14 @@
   <div id="audio-control">
     <audio autoplay controls id="audio"></audio>
     <div id="btn-group">
-      <button id="btn-start" v-on:click="start">start</button>
-      <button id="btn-pause" v-on:click="pause">pause</button>
-      <button id="btn-clear" v-on:click="clear">clear</button>
+      <button id="btn-start" v-on:click="start">{{startBtnText}}</button>
+      <button id="btn-stop" v-on:click="stop">stop</button>
       <button id="btn-transform" v-on:click="voice2Text">voice2Text</button>
     </div>
     <div id="result-box">
-      {{result}}
+      Recognized Result: {{result}}
     </div>
+    <button id="btn-back" v-on:click="back">back</button>
   </div>
 
 </template>
@@ -23,7 +23,8 @@ export default {
     return {
       rc: null,
       file: null,
-      result: ''
+      result: '',
+      startBtnText: 'start'
     }
   },
   methods: {
@@ -39,17 +40,22 @@ export default {
         this.rc.start()
           .then(() => {
             console.log('start recording')
+            this.startBtnText = 'pause'
           })
           .catch((error) => {
             console.log('recording failed', error)
           })
+      } else if (this.rc && this.rc.state === RECORDER_STATE.RECORDING) {
+        console.log('pause recording')
+        this.rc.pause()
+        this.startBtnText = 'continue'
       }
     },
-    pause: function () {
-      console.log('pause record')
+    stop: function () {
+      console.log('stop record')
       if (this.rc && this.rc.state === RECORDER_STATE.RECORDING) {
         this.rc.pause()
-
+        this.startBtnText = 'start'
         // save to audio source
         var audio = document.getElementById('audio')
         audio.src = URL.createObjectURL(this.rc.getRecord({
@@ -59,11 +65,9 @@ export default {
           encodeTo: ENCODE_TYPE.WAV
         })
         console.log(audio.src)
+
+        this.rc.clear()
       }
-    },
-    clear: function () {
-      console.log('clear record')
-      this.rc.clear()
     },
     voice2Text: function () {
       console.log(this.file)
@@ -81,6 +85,11 @@ export default {
         this.result = response.data.data
       }).catch((error) => {
         console.log(error)
+      })
+    },
+    back: function () {
+      this.$router.push({
+        path: '/'
       })
     }
   }
