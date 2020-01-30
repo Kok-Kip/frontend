@@ -31,7 +31,7 @@
 <script>
 import jsonp from 'jsonp'
 import Loading from '@/components/LoadBar'
-
+import axios from 'axios'
 export default {
   name: 'SearchPage',
   data () {
@@ -74,7 +74,7 @@ export default {
       this.hiddenContent()
       this.isLoading = true // show loading bar
       this.resData = []
-      this.$axios({
+      axios({
         method: 'get',
         // 这里可以考虑把 http://127.0.0.1:5000 放进 config 里面
         // server_api = 'http://111.230.212.14:5000/search?key='
@@ -86,13 +86,13 @@ export default {
         const data = response['data']['data']
         this.resData = data
         this.keyWord = query
-        console.log(response)
+        // console.log(response)
 
         this.isLoading = false // hide loading bar
       }).catch((error) => {
         console.log(error)
         this.isLoading = false // hide loading bar
-        alert('Sorrr! Our service is unavailable now')
+        alert('Sorry! Our service is unavailable now')
       })
     },
     updateQuery: function (data) {
@@ -105,16 +105,25 @@ export default {
     chooseItem: function (data) {
       this.query = data
       var dropdownContainer = document.getElementById('dropdown-content')
+      if (dropdownContainer === null) {
+        return
+      }
       dropdownContainer.style.display = 'none'
       this.shouldShow = false
       this.submit()
     },
     showContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
+      if (dropdownContainer === null) {
+        return
+      }
       dropdownContainer.style.display = 'block'
     },
     hiddenContent: function () {
       var dropdownContainer = document.getElementById('dropdown-content')
+      if (dropdownContainer === null) {
+        return
+      }
       dropdownContainer.style.display = 'none'
     },
     onFocus: function () {
