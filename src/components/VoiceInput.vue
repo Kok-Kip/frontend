@@ -78,7 +78,8 @@ export default {
       console.log('voice2Text start')
       this.$axios({
         method: 'post',
-        url: `http://127.0.0.1:5000/voice`,
+        // url: `http://127.0.0.1:5000/voice`,
+        url: `http://111.230.212.14:5000/voice`,
         data: form
       }).then((response) => {
         console.log(response)
