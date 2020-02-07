@@ -1,6 +1,6 @@
 <template>
   <div id="audio-control">
-    <audio id="audio"></audio>
+    <audio id="audio" controls></audio>
     <div id="btn-group">
       <button id="btn-start" v-on:click="start">{{startBtnText}}</button>
       <button id="btn-stop" v-on:click="stop">stop</button>
