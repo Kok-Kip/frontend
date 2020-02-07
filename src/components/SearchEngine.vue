@@ -93,9 +93,6 @@ export default {
       })
     }
   },
-  mounted () {
-
-  },
   watch: {
     query: function () {
       if (this.query === '') {

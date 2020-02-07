@@ -43,7 +43,8 @@ export default {
       isFirst: true,
       shouldShow: true,
       inputBoxFocus: false,
-      isLoading: false
+      isLoading: false,
+      request_url: ''
     }
   },
   components: {Loading},
@@ -79,7 +80,7 @@ export default {
         // 这里可以考虑把 http://127.0.0.1:5000 放进 config 里面
         // server_api = 'http://111.230.212.14:5000/search?key='
         // url: `http://127.0.0.1:5000/search?key=${query}`
-        url: `http://111.230.212.14:5000/search?key=${query}`
+        url: this.request_url + `/search?key=${query}`
       }).then((response) => {
         // 此处处理 response 返回的数据
         this.resData = []
@@ -154,6 +155,10 @@ export default {
         path: '/voice'
       })
     }
+  },
+  mounted () {
+    this.request_url = process.env.HOST
+    console.log(this.request_url)
   },
   created: function () {
     // Get query from URL

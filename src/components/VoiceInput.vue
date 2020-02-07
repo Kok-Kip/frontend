@@ -24,8 +24,13 @@ export default {
       rc: null,
       file: null,
       result: '',
-      startBtnText: 'start'
+      startBtnText: 'start',
+      request_url: ''
     }
+  },
+  mounted () {
+    this.request_url = process.env.HOST
+    console.log(this.request_url)
   },
   methods: {
     start: function () {
