@@ -156,11 +156,9 @@ export default {
       })
     }
   },
-  mounted () {
+  created: function () {
     this.request_url = process.env.HOST
     console.log(this.request_url)
-  },
-  created: function () {
     // Get query from URL
     const q = this.$route.query.q
     this.isFirst = true
